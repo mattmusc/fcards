@@ -1,0 +1,20 @@
+@import "../../../../node_modules/bootstrap/scss/bootstrap";
+
+.navbar-brand span {
+  font-size: 1.2em;
+  margin-left: 0.8em;
+  text-align: center;
+  vertical-align: text-bottom;
+}
+
+#main {
+  margin-top: 2em;
+}
+
+.navbar > a {
+  border-bottom: solid 0.3rem $gray-800;
+}
+
+.navbar > a:hover {
+  border-bottom: solid 0.3rem $cyan;
+}
