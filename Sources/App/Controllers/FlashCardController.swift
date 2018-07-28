@@ -21,8 +21,8 @@ final class FlashCardController {
     /// Returns a list of all `FlashCard`s with given `FlashCardType`
     func byType(_ req: Request) throws -> Future<[FlashCard]> {
         let typeString = try req.parameters.next(String.self)
-        return try FlashCard.query(on: req)
-            .filter(\FlashCard.type == FlashCardType(rawValue: typeString.lowercased()))
+        return FlashCard.query(on: req)
+            .filter(\FlashCard.type == FlashCardType(rawValue: typeString.lowercased())!)
             .sort(\FlashCard.id)
             .all()
     }
