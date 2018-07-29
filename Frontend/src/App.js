@@ -5,7 +5,7 @@ import {createStore} from "redux";
 import {Provider} from 'react-redux';
 
 import {FlashCardApp} from './FlashCardApp';
-import {flashCardAppStore} from "./FlashCardAppStore";
+import {flashCardAppStore} from "./store/FlashCardAppStore";
 
 class App extends Component {
   render() {

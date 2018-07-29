@@ -1,5 +1,5 @@
 import React from 'react';
-import {FlashCard} from "./FlashCard";
+import {FlashCard} from "../models/FlashCard";
 
 export const FlashCardsList = ({cards, onCardClick}) => (
   <ul>
