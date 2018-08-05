@@ -7,11 +7,14 @@
 
 import FluentSQLite
 import Foundation
+import Vapor
 
-enum FlashCardType: String, SQLiteEnumType {
+enum FlashCardType: String, SQLiteEnumType, CaseIterable {
+    case General = "general", Code = "code"
+    
+    static var allCases = [General, Code]
+    
     static func reflectDecoded() throws -> (FlashCardType, FlashCardType) {
         return (.General, .Code)
     }
-    
-    case General = "general", Code = "code"
 }

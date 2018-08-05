@@ -55,4 +55,9 @@ final class FlashCardController {
             return flashcard.delete(on: req)
         }.transform(to: .ok)
     }
+    
+    /// Returns a list of all possible `FlashCardType`s
+    func types(req: Request) throws -> [FlashCardType] {
+        return FlashCardType.allCases
+    }
 }

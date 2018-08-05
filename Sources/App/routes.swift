@@ -8,7 +8,7 @@ public func routes(_ router: Router) throws {
     let flashCardsController = FlashCardController()
     let cardsGroup = router.grouped("api/cards")
     
-    let flashCardsLeafCtr = FlashCardLeafController()
+    let flashCardsLeafCtr = FlashCardLeafController(flashCardsController)
     let leafGroup = router.grouped("/")
     
     /// Controller setups
