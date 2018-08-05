@@ -4,20 +4,16 @@ import Vapor
 /// Register your application's routes here.
 public func routes(_ router: Router) throws {
     
-    router.get("") { req -> Future<View> in
-        let leaf = try req.make(LeafRenderer.self)
-        let context = [String: String]()
-        return leaf.render("index", context)
-    }
-    
-    router.get("cards") { req -> Future<View> in
-        let leaf = try req.make(LeafRenderer.self)
-        let context = [String: String]()
-        return leaf.render("index", context)
-    }
-    
+    /// Controller definitions
     let flashCardsController = FlashCardController()
     let cardsGroup = router.grouped("api/cards")
+    
+    let flashCardsLeafCtr = FlashCardLeafController()
+    let leafGroup = router.grouped("/")
+    
+    /// Controller setups
+    leafGroup.get(use: flashCardsLeafCtr.index)
+    leafGroup.get("/cards", use: flashCardsLeafCtr.index)
     
     cardsGroup.get(use: flashCardsController.index)
     cardsGroup.get(String.parameter, use: flashCardsController.byType)
