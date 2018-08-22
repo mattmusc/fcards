@@ -6,7 +6,7 @@ public func routes(_ router: Router) throws {
     
     /// Controller definitions
     let flashCardsController = FlashCardController()
-    let cardsGroup = router.grouped("api/cards")
+    let apiGroup = router.grouped("api/cards")
     
     let flashCardsLeafCtr = FlashCardLeafController(flashCardsController)
     let leafGroup = router.grouped("/")
@@ -14,13 +14,14 @@ public func routes(_ router: Router) throws {
     /// Controller setups
     leafGroup.get(use: flashCardsLeafCtr.index)
     leafGroup.get("/cards", use: flashCardsLeafCtr.index)
+    leafGroup.get("/add", use: flashCardsLeafCtr.add)
     
-    cardsGroup.get(use: flashCardsController.index)
-    cardsGroup.get(String.parameter, use: flashCardsController.byType)
+    apiGroup.get(use: flashCardsController.index)
+    apiGroup.get(String.parameter, use: flashCardsController.byType)
     
-    cardsGroup.patch(use: flashCardsController.update)
+    apiGroup.patch(use: flashCardsController.update)
     
-    cardsGroup.post(use: flashCardsController.create)
+    apiGroup.post(use: flashCardsController.create)
     
-    cardsGroup.delete(FlashCard.parameter, use: flashCardsController.delete)
+    apiGroup.delete(FlashCard.parameter, use: flashCardsController.delete)
 }

@@ -1,57 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+#set("main") {
+    <h1>FlashCards - #count(flashCards) cards</h1>
 
-<head>
-
-    <!-- Basic Page Needs
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta charset="utf-8">
-    <title>Flash Cards App</title>
-    <meta name="description" content="Simple website to manage flash cards">
-    <meta name="author" content="Matteo Muscella">
-
-    <!-- Mobile Specific Metas
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- FONT
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-
-    <!-- CSS
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/skeleton.css">
-    <link rel="stylesheet" href="css/custom.css">
-
-    <!-- Favicon
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="icon" type="image/png" href="images/favicon.png">
-
-</head>
-
-<body>
-
-    <!-- Primary Page Layout -->
-    <div class="container">
-        <div class="row cards-adder">
-            <div class="one-half column">
-                <h2>FlashCards</h4>
-            </div>
-            <div class="one-half column text-right lh-4-5">
-                #(nOfCards) cards
-            </div>
-        </div>
-        <div class="row">
-            <select name="cardType" id="card-type-select">
-                #for(cardType in cardTypes) {
-                    <option value="#(cardType)">#(cardType)</option>
-                }
-            </select>
-        </div>
+    <div>
+        <button>Add general</button>
+        <button>Add code</button>
     </div>
 
-    <!-- End Document -->
-</body>
+    <ul>
+        #for(card in flashCards) {
+            <li>
+                <h4>#(card.title)</h4>
+                <h5>#(card.content)</h5>
+            </li>
+        }
+    </ul>
+}
 
-</html>
+#embed("master")

@@ -1,0 +1,5 @@
+#set("main") {
+    <h1>Add a new card</h1>
+}
+
+#embed("master")
