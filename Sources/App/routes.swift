@@ -1,7 +1,7 @@
 import Leaf
 import Vapor
 
-/// Register your application's routes here.
+/// Application routes
 public func routes(_ router: Router) throws {
     
     /// Controller definitions

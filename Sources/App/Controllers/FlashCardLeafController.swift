@@ -35,7 +35,12 @@ public final class FlashCardLeafController {
     
     func add(_ req: Request) throws -> Future<View> {
         let leaf = try req.make(LeafRenderer.self)
-        let context = FlashCardsContext(flashCards: [], nOfCards: 0, cardTypes: FlashCardType.allCases)
-        return leaf.render("add", context)
+        guard let type = req.query[String.self, at: "type"] else {
+            throw Abort(.badRequest)
+        }
+        guard let typeEnum = FlashCardType.init(rawValue: type.lowercased()) else {
+            throw Abort(.badRequest)
+        }
+        return leaf.render("add", ["type": typeEnum.rawValue])
     }
 }

@@ -2,8 +2,8 @@
     <h1>FlashCards - #count(flashCards) cards</h1>
 
     <div>
-        <button>Add general</button>
-        <button>Add code</button>
+        <button class="btn">Add general</button>
+        <button class="btn">Add code</button>
     </div>
 
     <ul>

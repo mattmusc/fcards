@@ -1,5 +1,33 @@
 #set("main") {
-    <h1>Add a new card</h1>
+    <h1>New #capitalize(type) card</h1>
+
+    <form class="form-horizontal" method="POST" action="/api/cards" enctype="multipart/form-data">
+        <div class="form-group">
+            <div class="col-2 col-sm-12">
+                <label for="title">Title</label>
+            </div>
+            <div class="col-10 col-sm-12">
+                <input class="form-input" id="title" type="text" name="title">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-2 col-sm-12">
+                <label class="form-label" for="content">Content</label>
+            </div>
+            <div class="col-10 col-sm-12">
+                <textarea id="content-txtarea" class="form-input" rows="4" cols="50"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-2 col-sm-12">
+                <label for="type">Type</label>
+            </div>
+            <div class="col-10 col-sm-12">
+                <input class="form-input" id="type" type="text" name="type" value="#(type)" disabled>
+            </div>
+        </div>
+        <input class="btn btn-primary input-group-btn" type="submit" value="Submit">
+    </form>
 }
 
 #embed("master")
